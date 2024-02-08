@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Chat Page</title>
+		<link
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="container mt-5">
+			<h1 class="text-center">Welcome to the Chat Page</h1>
+			<div class="row justify-content-center mt-5">
+				<div class="col-md-6 text-center">
+					<div class="form-group">
+						<label for="uuid">Your UUID:</label>
+						<div class="input-group">
+							<input
+								type="text"
+								id="uuid"
+								class="form-control"
+								th:value="${uuid}"
+								readonly
+							/>
+							<div class="input-group-append">
+								<button id="copy" class="btn btn-outline-secondary">
+									<i class="bi bi-clipboard"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<form action="/chat" method="get">
+						<input
+							type="submit"
+							value="Regenerate"
+							class="btn btn-primary mt-3"
+						/>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script>
+			document.getElementById("copy").addEventListener("click", function () {
+				var uuid = document.getElementById("uuid");
+				uuid.select();
+				document.execCommand("copy");
+			});
+		</script>
+	</body>
+</html>
