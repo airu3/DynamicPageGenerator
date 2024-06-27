@@ -1,6 +1,6 @@
 # buildステージを開始、Eclipse Temurin 17 JDKを適応したMavenということを設定
 FROM maven:3-eclipse-temurin-17 AS build 
-# ファイルをコピー
+# 現在のディレクトリをコンテナの中のappディレクトリにコピー
 COPY . . 
 # アプリケーションの実行と、テストのスキップ。
 RUN mvn clean package -Dmaven.test.skip=true
