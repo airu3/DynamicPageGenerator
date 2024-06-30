@@ -9,6 +9,6 @@ FROM eclipse-temurin:17-alpine
 # 前のビルドステージからビルドされたjarファイル(dpgApp.jar)を新しいビルドステージにコピー
 COPY --from=build /target/DynamicPageGenerator-0.0.1-SNAPSHOT.jar dpgApp.jar 
 # ポート8080を宣言
-EXPOSE 8080
+EXPOSE $PORT
 # 実行するファイル(dpgApp.jar)を指定
 ENTRYPOINT ["java", "-jar", "dpgApp.jar"]
