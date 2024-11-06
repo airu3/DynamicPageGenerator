@@ -24,7 +24,7 @@ public class ChatController {
 	}
 
 	// UUIDに基づいてページを表示するエンドポイント
-	@GetMapping("/chat/{uuid}")
+	@GetMapping("/chat/{uuid}") // {uuid}はパス変数です
 	public String chatPage(@PathVariable("uuid") String uuid, Model model) {
 		// モデルにUUIDを追加
 		model.addAttribute("uuid", uuid);
